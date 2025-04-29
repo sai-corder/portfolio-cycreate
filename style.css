@@ -1,0 +1,741 @@
+@charset "utf-8";
+
+/* ▼共通 */
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+}
+.flex {
+    display: flex;
+}
+.btn {
+    width: 200px;
+    height: 40px;
+    background-color: #4169E1;
+    border-radius: 300px;
+    font-size: 20px;
+    color: #fff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    transition: 0.2s;
+}
+.btn:hover {
+    opacity: 0.8;
+}
+.main_title {
+    font-size: 32px;
+    text-align: center;
+}
+.main_title::after {
+    content: "";
+    display: block;
+    width: 140px;
+    border-bottom: 8px solid #4169E1;
+    border-radius: 300px;
+    margin: 10px auto 0;
+}
+
+/* ▼ヘッダー */
+.header {
+    padding: 10px 0;
+}
+.header .flex  {
+    justify-content: space-between;
+    align-items: center;
+}
+.header .logo a {
+    display: inline-block;
+}
+.header a:hover {
+    opacity: 0.6;
+    transition: 0.2s;
+}
+.header .menu_items {
+    margin-right: 16px;
+}
+.header .menu_items:last-child {
+    margin-right: 0px;
+}
+/* ▼お問い合わせボタン */
+.header .menu_items .btn_contact {
+    display: inline-block;
+    background-color: #333333;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 300px;
+}
+
+/* ▼キービジュアル */
+.keyvisual {
+    position: relative;
+}
+.keyvisual img {
+    width: 100%;
+    height: 100vh;
+}
+.keyvisual .position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.keyvisual .position .kv_title {
+    font-size: 80px;
+    color: #fff;
+    width: max-content;
+    letter-spacing: -6px;
+}
+.keyvisual .position .kv_subtitle {
+    font-size: 70px;
+    color: #fff;
+    width: max-content;
+    letter-spacing: 1.6px;
+    margin-top: 20px;
+}
+
+/* ▼会社概要 */
+.company {
+    margin: 100px 0 80px 0;
+}
+.company .flex {
+    margin-top: 60px;
+    justify-content: space-between;
+    align-items: center;
+}
+.company .flex .img_wrapper {
+    width: 50%;
+    margin-right: 80px;
+}
+.company .flex .img_wrapper img {
+    width: 100%;
+}
+/* ▼会社概要のテーブル部分 */
+.company .company_info_wrapper {
+    width: 50%;
+}
+.company .company_info_wrapper .flex {
+    justify-content: start;
+    border-bottom: 3px solid #d9d9d9;
+    margin-top: 0;
+    padding: 20px 0;
+}
+.company .company_info_wrapper .flex:first-child {
+    padding: 0 0 20px 0;
+}
+.company .company_info_wrapper .flex .item_name {
+    width: 20%;
+}
+
+/* moreボタン位置調整 */
+.company .flex .btn_wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+}
+
+/* ▼サービス */
+.service {
+    background-color: #F5F5F5;
+    padding: 100px 0 80px 0;
+}
+.service .flex {
+    justify-content: center;
+    margin-top: 60px;
+}
+.service .service_conts {
+    width: 30%;
+    margin-right: 5%;
+}
+.service .service_conts:last-child {
+    margin-right: 0;
+}
+.service .service_conts a {
+    display: block;
+    width: 100%;
+    transition: 0.2s;
+}
+.service a:hover {
+    opacity: 0.8;
+}
+.service .service_conts img {
+    width: 100%;
+}
+.service .text_wrapper {
+    margin-top: 16px;
+}
+.service .inner_title {
+    font-size: 20px;
+    font-weight: bold;
+}
+.service .inner_text {
+    margin-top: 10px;
+}
+
+/* ▼実績紹介 */
+.record {
+    margin: 100px auto 80px;
+}
+.record img {
+    width: 100%;
+}
+.record .flex {
+    margin-top: 60px;
+}
+.record .flex .flex_items {
+    display: block;
+    width: 30%;
+    margin-right: 5%;
+    transition: 0.2s;
+}
+.record .flex .flex_items:hover {
+    opacity: 0.8;
+}
+.record .flex .flex_items:last-child {
+    margin-right: 0;
+}
+.record .inner_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 16px;
+}
+.record .inner_text {
+    margin-top: 10px;
+}
+/* ▼ボタン */
+.record .btn_wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ▼お知らせ */
+.news {
+    padding: 100px 0 80px 0;
+    background-color: #F5F5F5;
+}
+.news .news_list {
+    margin-top: 60px;
+    background-color: #fff
+}
+.news .news_list .news_items {
+    padding: 20px 0;
+    transition: 0.5s;
+    border-bottom: 1px solid #d9d9d9;
+}
+.news .news_list .news_items:last-child {
+    border-bottom: none;
+}
+.news .news_list .news_items:hover {
+    background-color: #444;
+    color: #fff;
+}
+.news .news_list .news_date {
+    width: 200px;
+}
+/* ▼ボタン */
+.news .btn_wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ▼よくある質問 */
+.faq {
+    padding: 100px 0 80px 0;
+}
+.faq .faq_items {
+    margin-top: 60px;
+}
+.faq .faq_items span {
+    display: inline-block;
+    margin-right: 20px;
+    color: #63A4FF;
+}
+.faq .faq_items a {
+    display: block;
+    padding: 20px 0;
+    border-bottom: 1px solid #d9d9d9;
+    transition: 0.5s;
+}
+.faq .faq_items .faq_text:last-child a {
+    border-bottom: none;
+}
+.faq .faq_items a:hover {
+    background-color: #444;
+    color: #fff;
+}
+/* ▼ボタン */
+.faq .btn_wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ▼フッター */
+.footer {
+    padding: 80px 0 0 0;
+    background-color: #444;
+    color: #fff;
+}
+.footer .logo_wrapper a {
+    transition: 0.2s;
+}
+.footer .logo_wrapper a:hover {
+    opacity: 0.6;
+}
+.footer .footer_menu {
+    margin: 40px 0;
+}
+.footer .footer_menu .menu_items {
+    margin-bottom: 20px;
+}
+.footer .footer_menu .menu_items a {
+    transition: 0.2s;
+}
+.footer .footer_menu .menu_items a:hover {
+    opacity: 0.6;
+}
+.footer .footer_menu .menu_items:last-child {
+    margin-bottom: 0px;
+}
+.footer .sns_text {
+    margin-bottom: 10px;
+}
+.footer .sns_wrapper a {
+    font-size: 30px;
+    margin-right: 20px;
+    transition: 0.2s;
+}
+.footer .sns_wrapper a:hover {
+    opacity: 0.4;
+}
+.footer .sns_wrapper a:last-child {
+    margin-right: 0px;
+}
+.footer .copy_right {
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* ▼レスポンシブ対応 */
+@media (max-width: 1350px) {
+    /* ▼キービジュアル */
+    .keyvisual img {
+        height: auto;
+    }
+    .keyvisual .position .kv_title {
+        font-size: 40px;
+        letter-spacing: 0px;
+    }
+    .keyvisual .position .kv_subtitle {
+        font-size: 30px;
+        letter-spacing: 4px;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+@media (max-width: 1280px) {
+    /* ▼共通 */
+    .wrapper {
+        width: 1024px;
+    }
+    .btn {
+        width: 160px;
+        font-size: 18px;
+    }
+    .main_title {
+        font-size: 28px;
+    }
+    
+    /* ▼ヘッダー */
+    .header {
+        padding: 6px 0px;
+    }
+    .header .logo img {
+        width: 60%;
+    }
+    .header .menu_items {
+        font-size: 14px;
+    }
+
+    /* ▼会社概要 */
+    .company {
+        margin: 60px 0 40px 0;
+    }
+    .company .flex {
+        margin-top: 40px;
+    }
+    .company .company_info_wrapper .flex {
+        padding: 14px 0;
+        font-size: 14px;
+    }
+    .company .company_info_wrapper .flex:first-child {
+        padding: 0 0 14px 0;
+    }
+
+    /* ▼サービス */
+    .service {
+        padding: 60px 0 40px 0;
+    }
+    .service .flex {
+        margin-top: 40px;
+    }
+    .service .inner_title {
+        font-size: 16px;
+    }
+    .service .inner_text {
+        font-size: 14px;
+        margin-top: 6px;
+    }
+
+    /* ▼実績紹介 */
+    .record {
+        margin: 60px auto 40px;
+    }
+    .record .flex {
+        margin-top: 40px;
+    }
+    .record .inner_title {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .record .inner_text {
+        font-size: 14px;
+        margin-top: 6px;
+    }
+    .record .btn_wrapper {
+        margin-top: 30px;
+    }
+
+    /* ▼お知らせ */
+    .news {
+        padding: 60px 0 40px 0;
+    }
+    .news .news_list {
+        margin-top: 40px;
+    }
+    .news .news_list .news_items {
+        padding: 14px 0;
+    }
+    .news .btn_wrapper {
+        margin-top: 30px;
+    }
+
+    /* ▼よくある質問 */
+    .faq {
+        padding: 60px 0 80px 0;
+    }
+    .faq .faq_items {
+        font-size: 14px;   
+    }
+    .faq .btn_wrapper {
+        margin-top: 30px;
+    }
+
+    /* ▼フッター */
+    .footer .logo_wrapper img {
+        width: 200px; 
+    }
+    .footer .footer_menu {
+        margin: 20px 0;
+    }
+    .footer .footer_menu .menu_items {
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+    .footer .sns_text {
+        font-size: 14px;
+    }
+    .footer .copy_right {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* ▼共通 */
+    .wrapper {
+        width: auto;
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* ▼共通 */
+    .flex {
+        display: block;
+    }
+    .btn {
+        width: 160px;
+        height: 30px;
+    }
+    .main_title {
+        font-size: 20px;
+    }
+    .main_title::after {
+        width: 100px;
+        border-bottom: 3px solid #4169e1;
+        margin: 6px auto 0;
+    }
+
+    /* ▼ヘッダー */
+    .header .flex {
+        display: flex;
+    }
+    .header .menu_items {
+        display: none;
+    }
+    .header .logo img {
+        width: 40%;
+    }
+
+    /* ▼キービジュアル */
+    .keyvisual .position .kv_title {
+        font-size: 20px;
+    }
+    .keyvisual .position .kv_subtitle {
+        font-size: 14px;
+        letter-spacing: 2.8px;
+        margin-top: 4px;
+    }
+
+    /* ▼会社概要 */
+    .company {
+        margin: 20px 0 20px 0;
+    }
+    .company .flex {
+        margin-top: 20px;
+    }
+    .company .flex .img_wrapper {
+        width: auto;
+        margin-right: 0px;
+    }
+
+    .company .company_info_wrapper {
+        width: auto;
+    }
+    .company .company_info_wrapper .flex {
+        display: flex;
+    }
+    .company .company_info_wrapper .flex:first-child {
+        padding: 14px 0 14px 0;
+    }
+
+    .company .flex .btn_wrapper {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    /* ▼サービス */
+    .service {
+        padding: 30px 0;
+    }
+    .service .flex {
+        margin-top: 20px;
+    }
+    .service .service_conts {
+        width: auto;
+        margin-right: 0;
+    }
+    .service .service_conts {
+        margin-top: 30px;
+    }
+    .service .service_conts:first-child {
+        margin-top: 0;
+    }
+    .service .text_wrapper {
+        margin-top: 10px;
+    }
+    .service .inner_text {
+        margin-top: 3px;
+    }
+
+    /* ▼実績紹介 */
+    .record {
+        margin: 30px 0;
+    }
+    .record .flex {
+        margin-top: 20px;
+    }
+    .record .flex .flex_items {
+        width: auto;
+        margin-right: 0;
+        margin-top: 30px;
+    }
+    .record .flex .flex_items:first-child {
+        margin-top: 0px;
+    }
+    .record .inner_text {
+        margin-top: 3px;
+    }
+
+    /* ▼お知らせ */
+    .news {
+        padding: 30px 0;
+    }
+    .news .news_list {
+        margin-top: 20px;
+    }
+    .news .news_items {
+        font-size: 14px;
+        display: flex;
+        padding: 12px 0;
+    }
+    .news .news_list .news_date {
+        width: 30%;
+    }
+    .news .news_list .news_title {
+        width: 70%;
+    }
+
+    .news .btn_wrapper {
+        margin-top: 20px;
+    }
+
+    /* ▼よくある質問 */
+    .faq {
+        padding: 30px 0 50px 0;
+    }
+    .faq .faq_items {
+        margin-top: 20px;
+    }
+    .faq .faq_items a {
+        padding: 14px 0;
+    }
+
+    .faq .btn_wrapper {
+        margin-top: 20px;
+    }
+
+    /* ▼フッター */
+    .footer {
+        padding: 40px 0 0 0;
+    }
+    .footer .logo_wrapper a img {
+        width: 140px;
+    }
+    .footer .footer_menu .menu_items {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* ▼共通 */
+    .main_title {
+        font-size: 14px;
+    }
+    .main_title::after {
+        width: 60px;
+        margin: 3px auto 0;
+    }
+
+    /* ▼キービジュアル */
+    .keyvisual .position .kv_title {
+        font-size: 14px;
+    }
+    .keyvisual .position .kv_subtitle {
+        font-size: 12px;
+        letter-spacing: 0.8px;
+    }
+
+    /* ▼会社概要 */
+    .company {
+        margin: 10px 0 20px;
+    }
+    .company .flex {
+        margin-top: 10px;
+    }
+
+    .company .company_info_wrapper .flex {
+        font-size: 12px;
+    }
+
+    .company .flex .btn_wrapper {
+        margin-top: 10px;
+    }
+
+    /* ▼サービス */
+    .service {
+        padding: 20px 0; 
+    }
+    .service .flex {
+        margin-top: 10px;
+    }
+    .service .text_wrapper {
+        margin-top: 0px;
+    }
+    .service .inner_title {
+        font-size: 14px;
+    }
+    .service .inner_text {
+        font-size: 12px;
+    }
+    .service .service_conts {
+        margin-top: 10px;
+    }
+
+    /* ▼実績紹介 */
+    .record {
+        margin: 20px 0;
+    }
+    .record .flex {
+        margin-top: 10px;
+    }
+    .record .flex .flex_items {
+        margin-top: 16px;
+    }
+    .record .inner_title {
+        margin-top: 0px;
+        font-size: 14px;
+    }
+    .record .inner_text {
+        font-size: 12px;
+        margin-top: 0;
+    }
+
+    .record .btn_wrapper {
+        margin-top: 20px;
+    }
+
+    /* ▼お知らせ */
+    .news {
+        padding: 20px 0;
+    }
+    .news .news_list {
+        margin-top: 10px;
+    }
+    .news .news_list .news_date,.news .news_list .news_title {
+        font-size: 12px;
+    }
+
+    /* ▼よくある質問 */
+    .faq {
+        padding: 20px 0 40px;
+    }
+    .faq .faq_items {
+        margin-top: 10px;
+    }
+    .faq .faq_items span {
+        margin-right: 10px;
+    }
+    .faq .faq_items a {
+        font-size: 12px;
+    }
+
+    .faq .btn_wrapper {
+        margin-top:20px;
+    }
+
+    /* ▼フッター */
+    .footer .footer_menu .menu_items  {
+        font-size: 12px;
+    }
+    .footer .sns_text {
+        font-size: 12px;
+    }
+    .footer .copy_right {
+        font-size: 11px;
+    }
+    
+}

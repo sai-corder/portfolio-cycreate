@@ -25,8 +25,10 @@ targets.forEach((target) => {
 });
 
 const hamburger = document.getElementById('hamburger');
-const mnu = document.querySelector('.menu');
+const menu = document.querySelector('.menu');
 
 hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
     menu.classList.toggle('active');
+    document.body.classList.toggle('fixed');// スクロールロック
 });

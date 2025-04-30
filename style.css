@@ -36,6 +36,16 @@
     border-radius: 300px;
     margin: 10px auto 0;
 }
+.observer-target {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+.observer-target.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* ▼ヘッダー */
 .header {

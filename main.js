@@ -10,3 +10,16 @@ window.addEventListener('DOMContentLoaded' , () => {
         subtitle.classList.add('show');
     }, 800);
 });
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+const targets = document.querySelectorAll('.observer-target');
+targets.forEach((target) => {
+    observer.observe(target);
+});

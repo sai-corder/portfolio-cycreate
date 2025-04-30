@@ -24,11 +24,12 @@ targets.forEach((target) => {
     observer.observe(target);
 });
 
+//ハンバーガーメニュー
 const hamburger = document.getElementById('hamburger');
-const menu = document.querySelector('.menu');
+const nav = document.getElementById('nav');
 
 hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    menu.classList.toggle('active');
-    document.body.classList.toggle('fixed');// スクロールロック
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('active');
+  document.body.classList.toggle('fixed'); // スクロール防止
 });

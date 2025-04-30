@@ -46,6 +46,41 @@
     transform: translateY(0);
 }
 
+/* ▼ハンバーガーメニュー */
+.hamburger {
+    display: none;
+    width: 30px;
+    height: 25px;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.hamburger span {
+    display: block;
+    height: 4px;
+    background-color: #333;
+    border-radius: 2px;
+}
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    .menu {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        width: 80%;
+        padding: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .menu.active {
+        display: flex;
+    }
+}
+
 
 /* ▼ヘッダー */
 .header {

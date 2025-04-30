@@ -23,3 +23,10 @@ const targets = document.querySelectorAll('.observer-target');
 targets.forEach((target) => {
     observer.observe(target);
 });
+
+const hamburger = document.getElementById('humburger');
+const mnu = document.querySelector('.menu');
+
+hamburger.addEventListener('click', () => {
+    menu.classList.toggle('active');
+});

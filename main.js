@@ -24,7 +24,7 @@ targets.forEach((target) => {
     observer.observe(target);
 });
 
-const hamburger = document.getElementById('humburger');
+const hamburger = document.getElementById('hamburger');
 const mnu = document.querySelector('.menu');
 
 hamburger.addEventListener('click', () => {

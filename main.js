@@ -26,10 +26,8 @@ targets.forEach((target) => {
 
 //ハンバーガーメニュー
 const hamburger = document.getElementById('hamburger');
-const menu = document.getElementById('menu');
+const menu = document.getElementById('menu')
 
 hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  menu.classList.toggle('active');
-  document.body.classList.toggle('fixed'); // スクロール防止
+    menu.classList.toggle('action');    
 });

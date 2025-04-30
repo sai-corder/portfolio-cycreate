@@ -86,6 +86,7 @@
         flex-direction: column;
         position: relative;
         z-index:11;
+        padding: 6px;
     }
     .hamburger span {
         display: inline-block;
@@ -93,6 +94,16 @@
         height: 2px;
         background-color: #444;
         margin-top: 4px;
+        transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(4px,3px);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px,-4px);
     }
     .hamburger span:first-child {
         margin-top: 0;
@@ -104,7 +115,7 @@
         top: 0;
         z-index: 10;
         background-color: #fff;
-        padding: 20px 10px 20px 10px;
+        padding: 36px 10px 36px 10px;
         height: 100vh;
         transition: all 0.3s;
     }

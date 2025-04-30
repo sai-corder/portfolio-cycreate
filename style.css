@@ -94,6 +94,17 @@
     letter-spacing: 1.6px;
     margin-top: 20px;
 }
+/* ▼キービジュアルタイトルのアニメーション処理 */
+.kv_title,.kv_subtitle {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+.kv_title.show,
+.kv_subtitle.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* ▼会社概要 */
 .company {

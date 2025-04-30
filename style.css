@@ -64,13 +64,13 @@
     transition: all 0.3s ease;
 }
 /* ボタン変形 */
-.hamburger .active span:nth-child(1) {
+.hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px,5px);
 }
-.hamburger .avtive span:nth-child(2) {
+.hamburger.active span:nth-child(2) {
     opacity: 0;
 }
-.hamburger .active span:nth-child(3) {
+.hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(6px,-6px);
 }
 @media (max-width: 768px) {
@@ -558,9 +558,6 @@
     /* ▼ヘッダー */
     .header .flex {
         display: flex;
-    }
-    .header .menu_items {
-        display: none;
     }
     .header .logo img {
         width: 40%;

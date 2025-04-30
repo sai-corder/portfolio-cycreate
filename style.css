@@ -99,39 +99,37 @@
     }
     .header .menu.flex {
         position: fixed;
-        right: -1500px;
-        top: 0;
-    }
-    .header .menu.flex.action {
         display: inline-block;
-    }
-    .header .menu.flex.action {
-        display: block;
-        right: 0;
+        right: -100%;
+        top: 0;
         z-index: 10;
         background-color: #fff;
         padding: 20px 10px 20px 10px;
         height: 100vh;
+        transition: all 0.3s;
+    }
+    .header .menu.flex.active {
+        right: 0;
         transition: all 0.3s ease;
     }
-    .header .menu.flex.action .menu_items  {
+    .header .menu.flex .menu_items  {
         margin: 0;
     }
-    .header .menu.flex.action .menu_items:last-child {
+    .header .menu.flex .menu_items:last-child {
         margin-top: 10px;
         text-align: center;
     }
-    .header .menu.flex.action .menu_items a {
+    .header .menu.flex .menu_items a {
         width: 100%;
         display: inline-block;
         padding: 16px 30px 16px 10px;
         border-bottom: 1px solid #d9d9d9;
         margin: 0;
     }
-    .header .menu.flex.action .menu_items:last-child {
+    .header .menu.flex .menu_items:last-child {
         border-bottom: none;
     }
-    .header .menu.flex.action .menu_items:last-child a {
+    .header .menu.flex .menu_items:last-child a {
         padding: 12px 20px;
     }
 }

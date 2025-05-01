@@ -32,3 +32,22 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     menu.classList.toggle('active');
 });
+
+//faqトグル表示
+const questions = document.querySelectorAll('.faq_text');
+
+questions.forEach((question) => {
+    question.addEventListener('click', () => {
+        const next = question.nextElementSibling;
+
+        if(next && next.classList.contains('answer')) {
+            next.remove();
+        } else {
+            const answer = document.createElement('div');
+            answer.classList.add('answer');
+
+            answer.textContent = question.dataset.answer;
+            question.parentNode.insertBefore(answer, question.nextSibling);
+        };
+    });
+});

@@ -715,6 +715,9 @@
     .faq .faq_items .faq_text {
         padding: 14px 0;
     }
+    .faq .faq_items .answer {
+        padding: 14px 10px;
+    }
 
     .faq .btn_wrapper {
         margin-top: 20px;
@@ -831,7 +834,7 @@
     .faq .faq_items span {
         margin-right: 10px;
     }
-    .faq .faq_items .faq_text {
+    .faq .faq_items .faq_text,.faq .faq_items .answer {
         font-size: 12px;
     }
 

@@ -37,17 +37,39 @@ hamburger.addEventListener('click', () => {
 const questions = document.querySelectorAll('.faq_text');
 
 questions.forEach((question) => {
-    question.addEventListener('click', () => {
-        const next = question.nextElementSibling;
+  question.addEventListener('click', () => {
+    const currentAnswer = question.nextElementSibling;
+    const icon = question.querySelector('span');
 
-        if(next && next.classList.contains('answer')) {
-            next.remove();
-        } else {
-            const answer = document.createElement('div');
-            answer.classList.add('answer');
+    // すでに開いている場合は閉じる
+    if (currentAnswer && currentAnswer.classList.contains('answer')) {
+      currentAnswer.classList.remove('open');
+      icon.classList.remove('fa-minus');
+      icon.classList.add('fa-plus');
+      setTimeout(() => currentAnswer.remove(), 400);
+      return;
+    }
 
-            answer.textContent = question.dataset.answer;
-            question.parentNode.insertBefore(answer, question.nextSibling);
-        };
+    // 他の開いている答えをすべて閉じる
+    const openAnswers = document.querySelectorAll('.answer.open');
+    openAnswers.forEach(answer => {
+      const prevQuestion = answer.previousElementSibling;
+      const prevIcon = prevQuestion.querySelector('span');
+
+      answer.classList.remove('open');
+      prevIcon.classList.remove('fa-minus');
+      prevIcon.classList.add('fa-plus');
+      setTimeout(() => answer.remove(), 400);
     });
+
+    // 新しい答えを表示
+    const answer = document.createElement('div');
+    answer.classList.add('answer', 'open');
+    answer.textContent = question.dataset.answer;
+    question.parentNode.insertBefore(answer, question.nextSibling);
+
+    // アイコン切り替え
+    icon.classList.remove('fa-plus');
+    icon.classList.add('fa-minus');
+  });
 });

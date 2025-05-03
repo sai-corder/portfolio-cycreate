@@ -715,8 +715,8 @@
     .faq .faq_items .faq_text {
         padding: 14px 0;
     }
-    .faq .faq_items .answer {
-        padding: 14px 10px;
+    .faq .faq_items .answer.open {
+        padding: 8px 10px;
     }
 
     .faq .btn_wrapper {

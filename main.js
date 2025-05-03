@@ -38,38 +38,24 @@ const questions = document.querySelectorAll('.faq_text');
 
 questions.forEach((question) => {
   question.addEventListener('click', () => {
-    const currentAnswer = question.nextElementSibling;
-    const icon = question.querySelector('span');
+    const answer = question.nextElementSibling;
+    const icon = question.querySelector('span'); // 各質問の中の+アイコンを取得
 
-    // すでに開いている場合は閉じる
-    if (currentAnswer && currentAnswer.classList.contains('answer')) {
-      currentAnswer.classList.remove('open');
-      icon.classList.remove('fa-minus');
-      icon.classList.add('fa-plus');
-      setTimeout(() => currentAnswer.remove(), 400);
-      return;
-    }
-
-    // 他の開いている答えをすべて閉じる
-    const openAnswers = document.querySelectorAll('.answer.open');
-    openAnswers.forEach(answer => {
-      const prevQuestion = answer.previousElementSibling;
-      const prevIcon = prevQuestion.querySelector('span');
-
-      answer.classList.remove('open');
-      prevIcon.classList.remove('fa-minus');
-      prevIcon.classList.add('fa-plus');
-      setTimeout(() => answer.remove(), 400);
+    // アコーディオン：他を閉じる
+    document.querySelectorAll('.answer.open').forEach((el) => {
+      if (el !== answer) el.classList.remove('open');
     });
 
-    // 新しい答えを表示
-    const answer = document.createElement('div');
-    answer.classList.add('answer', 'open');
-    answer.textContent = question.dataset.answer;
-    question.parentNode.insertBefore(answer, question.nextSibling);
+    // アイコンも他を元に戻す
+    document.querySelectorAll('.faq_text span').forEach((el) => {
+      if (el !== icon) {
+        el.classList.remove('fa-minus');
+        el.classList.add('fa-plus');
+      }
+    });
 
-    // アイコン切り替え
-    icon.classList.remove('fa-plus');
-    icon.classList.add('fa-minus');
+    answer.classList.toggle('open');
+    icon.classList.toggle('fa-plus');
+    icon.classList.toggle('fa-minus');
   });
 });

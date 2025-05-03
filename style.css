@@ -349,6 +349,9 @@
     margin-right: 20px;
     color: #63A4FF;
 }
+.faq .faq_items span.fa-minus {
+    color: #333;
+}
 .faq .faq_items .faq_text {
     padding: 20px 0;
     border-bottom: 1px solid #d9d9d9;
@@ -362,18 +365,22 @@
     background-color: #444;
     color: #fff;
 }
-.answer {
+
+.faq .answer {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.4s ease, opacity 0.4s ease;
-}
+    transition: all 0.5s ease;
+    padding: 0 0 0 40px;
+    margin: 0;
+  }
   
-.answer.open {
-    max-height: 500px;
+  .faq .answer.open {
+    max-height: 300px;
     opacity: 1;
     padding: 20px 0 20px 40px;
-}
+  }
+  
 /* ▼ボタン */
 .faq .btn_wrapper {
     margin-top: 50px;

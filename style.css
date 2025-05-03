@@ -299,6 +299,43 @@
 .record .inner_text {
     margin-top: 10px;
 }
+
+/* カルーセルデザイン */
+.slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-top: 60px;
+  }
+  
+  .slider {
+    overflow: hidden;
+  }
+  
+  .slider-track {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+  
+  .flex_items {
+    flex: 0 0 33.333%; /* 3カラム */
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+  
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #4169E1;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .prev { left: 0; }
+  .next { right: 0; }
+
 /* ▼ボタン */
 .record .btn_wrapper {
     margin-top: 50px;
@@ -680,6 +717,14 @@
     }
     .record .inner_text {
         margin-top: 3px;
+    }
+    .slider-track .flex_items {
+        flex: 0 0 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    .slider-wrapper {
+        margin-top: 20px;
     }
 
     /* ▼お知らせ */

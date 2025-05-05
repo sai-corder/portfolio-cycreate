@@ -1,11 +1,13 @@
 @charset "utf-8";
-/* ▼ノート */
+
+/* ▼TOPページ */
+/* ▼ノート
 .note {
     font-size: 14px;
     color: #555;
     text-align: center;
     margin-top: 12px;
-}
+} */
 
 /* ▼共通 */
 .wrapper {
@@ -898,4 +900,132 @@
         font-size: 11px;
     }
     
+}
+
+/* ▼お問い合わせページ contact.html */
+.contact_page .main .main_title {
+    margin-top: 100px;
+}
+.progres.flex {
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+.progres .progres_items {
+    background-color: #d9d9d9;
+    border-radius: 300px;
+    font-weight: 400;
+    text-align: center;
+    padding: 14px 0;
+    width: 200px;
+}
+.progres .progres_items .inner_text {
+    color: #4169e1;
+}
+.progres .progres_items:first-child {
+    background-color: #4169e1;
+    color: #fff;
+}
+.progres .progres_items:first-child .inner_text {
+    color: #fff;
+}
+.progres .line {
+    width: 40px;
+    height: 6px;
+    background-color: #d9d9d9;
+}
+
+/* ▼フォーム */
+.contact_page .main .wrapper {
+    width: 960px;
+}
+.form {
+    margin: 40px 0 120px 0;
+}
+.form .form_text {
+    width: 40%;
+    margin-right: 3%;
+}
+.form input,.form textarea {
+    background-color: #F5F5F5;
+    width: 57%;
+    display: inline-block;
+    border: 1px solid #d9d9d9;
+}
+.form input {
+    padding: 10px;
+}
+.form .form_items .tel-group.flex {
+    align-items: center;
+    width: 57%;
+}
+.form .form_items .tel-group.flex input {
+    width: 30%;
+}
+.form .form_items .tel-group.flex span {
+    display: inline-block;
+    padding: 0px 6px;
+}
+
+.form select {
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    appearance: auto;
+}
+.form textarea {
+    height: 100px;
+}
+.form .form_items {
+    padding: 20px 0;
+    border-bottom: 1px solid #d9d9d9;
+}
+input::placeholder, select::placeholder, textarea::placeholder,
+option::placeholder {
+    color: #d9d9d9;
+}
+.form .must {
+    color: #E14141;
+    font-weight: 600;
+}
+.sp_note {
+    font-size: 14px;
+    color: #888;
+    text-align: right;
+    margin-top: 4px;
+}
+
+.contact_page .form .btn_wrapper {
+    justify-content: center;
+    display: flex;
+    margin-top: 60px;
+}
+.contact_page .form .btn_wrapper a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 46px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 300px;
+    text-align: center;
+    margin-right: 100px;
+    transition: all 0.2s ease;
+}
+.contact_page .form .btn_wrapper .submit_btn {
+    width: 20%;
+    border-radius: 300px;
+    text-align: center;
+    background-color: #4169e1;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.contact_page .form .btn_wrapper a:hover,
+.contact_page .form .btn_wrapper .submit_btn:hover {
+    opacity: 0.8;
 }

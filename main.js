@@ -151,3 +151,50 @@ function updateWidth() {
 }
 
 window.addEventListener('resize', updateWidth);
+
+//▼お問い合わせページcontact.htmlの入力バリデーション
+document.addEventListener('DOMContentLoaded', () => {
+  // ▼バリデーション用処理
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', function (e) {
+      let errors = [];
+
+      // 会社名
+      if (!form.company.value.trim()) {
+          errors.push("会社名を入力してください。");
+      }
+
+      // お名前
+      if (!form.name.value.trim()) {
+          errors.push("お名前を入力してください。");
+      }
+
+      // 電話番号
+      const tel1 = form.tel1.value.trim();
+      const tel2 = form.tel2.value.trim();
+      const tel3 = form.tel3.value.trim();
+      const telRegex = /^\d+$/;
+      if (!(tel1 && tel2 && tel3) || !telRegex.test(tel1 + tel2 + tel3)) {
+          errors.push("電話番号を正しく入力してください（数字のみ）。");
+      }
+
+      // メール
+      const email = form.email.value.trim();
+      const emailRegex = /^[\w\.-]+@[\w\.-]+\.\w+$/;
+      if (!email || !emailRegex.test(email)) {
+          errors.push("正しいメールアドレスを入力してください。");
+      }
+
+      // ご相談内容
+      if (!form.inquiry.value) {
+          errors.push("ご相談内容を選択してください。");
+      }
+
+      if (errors.length > 0) {
+          e.preventDefault();
+          alert(errors.join('\n'));
+      }
+  });
+});
+

@@ -38,24 +38,24 @@
     <main class="main">
         <div class="wrapper">
             <h1 class="main_title">お問い合わせ</h1>
-            <div class="progres flex">
-                <p class="progres_items"><span class="inner_text">step 1</span><br>フォームを入力</p>
+            <div class="progress flex">
+                <p class="progress_items"><span class="inner_text">step 1</span><br>フォームを入力</p>
                 <div class="line"></div>
-                <p class="progres_items"><span class="inner_text">step 2</span><br>入力内容確認</p>
+                <p class="progress_items"><span class="inner_text">step 2</span><br>入力内容確認</p>
                 <div class="line"></div>
-                <p class="progres_items"><span class="inner_text">step 3</span><br>お問い合わせ完了</p>
+                <p class="progress_items"><span class="inner_text">step 3</span><br>お問い合わせ完了</p>
             </div>
-            <div class="form">
+            <form class="form" action="confirm.php" method="POST" enctype="multipart/form-data">
                 <div class="form_items flex">
-                    <p class="form_text">会社名（屋号）<span class="must">*</span></p>
-                    <input type="text" placeholder="サンプル株式会社">
+                    <label for="company" class="form_text">会社名（屋号）<span class="must">*</span></label>
+                    <input type="text" placeholder="サンプル株式会社" name="company" id="company">
                 </div>
                 <div class="form_items flex">
-                    <p class="form_text">お名前<span class="must">*</span></p>
-                    <input type="text" placeholder="山田 太郎">
+                    <label for="name" class="form_text">お名前<span class="must">*</span></label>
+                    <input type="text" placeholder="山田 太郎" name="name" id="name">
                 </div>
                 <div class="form_items flex">
-                    <p class="form_text">電話番号<span class="must">*</span></p>
+                    <label for="tel" class="form_text">電話番号<span class="must">*</span></label>
                     <div class="tel-group flex">
                         <input type="text" id="tel1" name="tel1" maxlength="5" required placeholder="03">
                         <span class="hyphen">-</span>
@@ -65,11 +65,11 @@
                     </div>
                 </div>
                 <div class="form_items flex">
-                    <p class="form_text">メールアドレス<span class="must">*</span></p>
-                    <input type="email" placeholder="example@xxx.co.jp">
+                    <label for="email" class="form_text">メールアドレス<span class="must">*</span></label>
+                    <input type="email" placeholder="example@xxx.co.jp" name="email" id="email">
                 </div>
                 <div class="form_items flex">
-                    <p class="form_text">都道府県</p>
+                    <label for="prefecture" class="form_text">都道府県</label>
                     <select name="prefecture" id="prefecture" required>
                         <option placeholder="">選択してください</option>
                         <option placeholder="北海道">北海道</option>
@@ -122,7 +122,7 @@
                     </select>
                 </div>
                 <div class="form_items flex">
-                    <p class="form_text">ご相談内容をお選びください<span class="must">*</span></p>
+                    <label for="inquiry" class="form_text">ご相談内容をお選びください<span class="must">*</span></label>
                     <select name="inquiry" id="inquiry" required>
                         <option placeholder="">ご相談内容を選択</option>
                         <option placeholder="web制作">WEBサイト制作のご相談</option>
@@ -134,19 +134,19 @@
                     </select>
                 </div>
                 <div class="form_items flex">
-                    <p class="form_text">ご相談内容の詳細がありましたらご記入ください</p>
-                    <textarea name="text" placeholder="ご相談内容を入力してください"></textarea>
+                    <label for="text" class="form_text">ご相談内容の詳細がありましたらご記入ください</label>
+                    <textarea name="text" placeholder="ご相談内容を入力してください" id="text"></textarea>
                 </div>
                 <div class="form_items flex">
-                    <p class="form_text">ファイルの添付</p>
-                    <input type="file">
+                    <label for="file" class="form_text">ファイルの添付</label>
+                    <input type="file" name="file" id="file">
                 </div>
                 <p class="sp_note"><span class="must">*</span>は入力必須項目です。</p>
                 <div class="btn_wrapper">
                     <a href="index.html">トップページへ戻る</a>
-                    <input type="submit" class="submit_btn">
+                    <input type="submit" class="submit_btn" name="submit" value="内容を確認する">
                 </div>
-            </div>
+            </form>
         </div>
     </main>
     <footer class="footer">

@@ -906,12 +906,12 @@
 .contact_page .main .main_title {
     margin-top: 100px;
 }
-.progres.flex {
+.progress.flex {
     align-items: center;
     justify-content: center;
     margin-top: 60px;
 }
-.progres .progres_items {
+.progress .progress_items {
     background-color: #d9d9d9;
     border-radius: 300px;
     font-weight: 400;
@@ -919,17 +919,17 @@
     padding: 14px 0;
     width: 200px;
 }
-.progres .progres_items .inner_text {
+.progress .progress_items .inner_text {
     color: #4169e1;
 }
-.progres .progres_items:first-child {
+.progress .progress_items:first-child {
     background-color: #4169e1;
     color: #fff;
 }
-.progres .progres_items:first-child .inner_text {
+.progress .progress_items:first-child .inner_text {
     color: #fff;
 }
-.progres .line {
+.progress .line {
     width: 40px;
     height: 6px;
     background-color: #d9d9d9;
@@ -943,8 +943,7 @@
     margin: 40px 0 120px 0;
 }
 .form .form_text {
-    width: 40%;
-    margin-right: 3%;
+    width: 43%;
 }
 .form input,.form textarea {
     background-color: #F5F5F5;
@@ -1028,4 +1027,120 @@ option::placeholder {
 .contact_page .form .btn_wrapper a:hover,
 .contact_page .form .btn_wrapper .submit_btn:hover {
     opacity: 0.8;
+}
+
+/* ▼お問い合わせ入力内容確認ページconfirm.php */
+.confirm_page .main {
+    margin-top: 100px;
+}
+.confirm_page .main .wrapper {
+    width: 960px;
+}
+.progress.flex {
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+.progress .progress_items {
+    background-color: #d9d9d9;
+    border-radius: 300px;
+    font-weight: 400;
+    text-align: center;
+    padding: 14px 0;
+    width: 200px;
+}
+.progress .progress_items .inner_text {
+    color: #4169e1;
+}
+.confirm_page .progress .progress_items:first-child {
+    background-color: #d9d9d9;
+    color: #000;
+}
+.confirm_page .progress .progress_items:first-child .inner_text {
+    color: #4169e1;
+}
+.confirm_page .progress .progress_items:nth-child(3) {
+    background-color: #4169e1;
+    color: #fff;
+}
+.confirm_page .progress .progress_items:nth-child(3) .inner_text {
+    color: #fff;
+}
+
+.confirm_page .main form {
+    margin: 40px 0 120px 0;
+}
+.confirm_page dt,.confirm_page dd {
+    background-color: #F5F5F5;
+    padding: 20px 10px;
+    border-bottom: 1px solid #d9d9d9;
+}
+.confirm_page .main form .flex dt {
+    width: 43%;
+    display: inline-block;
+}
+.confirm_page .main form .flex dd {
+    width: 57%;
+    display: inline-block;
+}
+
+.confirm_page form .btn_wrapper {
+    justify-content: center;
+    display: flex;
+    margin-top: 60px;
+}
+.confirm_page form .btn_wrapper button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 46px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 300px;
+    text-align: center;
+    margin-right: 100px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.confirm_page form .btn_wrapper .submit_btn {
+    width: 20%;
+    border-radius: 300px;
+    text-align: center;
+    background-color: #4169e1;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.confirm_page form .btn_wrapper button:hover,
+.confirm_page form .btn_wrapper .submit_btn:hover {
+    opacity: 0.8;
+}
+
+/* ▼お問い合わせ完了ページthanks.html */
+.thanks_page .main {
+    margin: 100px 0 120px 0;
+}
+
+.thanks_page .btn_wrapper {
+    text-align: center;
+    margin-top: 60px;
+}
+.thanks_page .btn_wrapper .btn {
+    font-size: 16px;
+}
+.thanks_page .progress .progress_items:first-child {
+    background-color: #d9d9d9;
+    color: #000;
+}
+.thanks_page .progress .progress_items:first-child .inner_text {
+    color: #4169e1;
+}
+.thanks_page .progress .progress_items:nth-child(5) {
+    background-color: #4169e1;
+    color: #fff;
+}
+.thanks_page .progress .progress_items:nth-child(5) .inner_text {
+    color: #fff;
 }

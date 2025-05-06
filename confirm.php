@@ -8,10 +8,13 @@ function h($str) {
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>内容確認</title>
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="沖縄を拠点にWEB制作、動画編集、WEBマーケティングを行うcycreate。安心と利益をもたらすパートナーとしての実績をご紹介します。">
+    <title>内容詳細</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 <body class="confirm_page">
 <header class="header">
@@ -116,5 +119,6 @@ function h($str) {
             </div>
         </div>
     </footer>
+    <script src="main.js"></script>
 </body>
 </html>

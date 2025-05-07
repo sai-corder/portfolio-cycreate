@@ -54,6 +54,14 @@
     opacity: 1;
     transform: translateY(0);
 }
+/* ▼お問い合わせバリデートテキスト装飾 */
+.error-msg {
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+    display: block;
+  }
+  
 
 /* ▼ヘッダー */
 .header {

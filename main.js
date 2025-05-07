@@ -1,200 +1,124 @@
-window.addEventListener('DOMContentLoaded' , () => {
-    const title = document.querySelector('.kv_title');
-    const subtitle = document.querySelector('.kv_subtitle');
+window.addEventListener('DOMContentLoaded', () => {
+  console.log("main.js読み込みOK");
 
+  // -------------------------------
+  // ▼ ① キービジュアルの表示
+  // -------------------------------
+  const title = document.querySelector('.kv_title');
+  const subtitle = document.querySelector('.kv_subtitle');
+
+  if (title && subtitle) {
     setTimeout(() => {
-        title.classList.add('show');
+      title.classList.add('show');
     }, 300);
 
     setTimeout(() => {
-        subtitle.classList.add('show');
+      subtitle.classList.add('show');
     }, 800);
-});
+  }
 
-const observer = new IntersectionObserver((entries) => {
+  // -------------------------------
+  // ▼ ② IntersectionObserver
+  // -------------------------------
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+
+  const targets = document.querySelectorAll('.observer-target');
+  targets.forEach((target) => observer.observe(target));
+
+  // -------------------------------
+  // ▼ ③ ハンバーガーメニュー
+  // -------------------------------
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      menu.classList.toggle('active');
+    });
+  }
+
+  // -------------------------------
+  // ▼ ④ FAQトグル
+  // -------------------------------
+  const questions = document.querySelectorAll('.faq_text');
+  questions.forEach((question) => {
+    question.addEventListener('click', () => {
+      const answer = question.nextElementSibling;
+      const icon = question.querySelector('span');
+
+      document.querySelectorAll('.answer.open').forEach((el) => {
+        if (el !== answer) el.classList.remove('open');
+      });
+
+      document.querySelectorAll('.faq_text span').forEach((el) => {
+        if (el !== icon) {
+          el.classList.remove('fa-minus');
+          el.classList.add('fa-plus');
         }
+      });
+
+      answer.classList.toggle('open');
+      icon.classList.toggle('fa-plus');
+      icon.classList.toggle('fa-minus');
     });
-});
-
-const targets = document.querySelectorAll('.observer-target');
-targets.forEach((target) => {
-    observer.observe(target);
-});
-
-//ハンバーガーメニュー
-const hamburger = document.getElementById('hamburger');
-const menu = document.getElementById('menu')
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    menu.classList.toggle('active');
-});
-
-//faqトグル表示
-const questions = document.querySelectorAll('.faq_text');
-
-questions.forEach((question) => {
-  question.addEventListener('click', () => {
-    const answer = question.nextElementSibling;
-    const icon = question.querySelector('span'); // 各質問の中の+アイコンを取得
-
-    // アコーディオン：他を閉じる
-    document.querySelectorAll('.answer.open').forEach((el) => {
-      if (el !== answer) el.classList.remove('open');
-    });
-
-    // アイコンも他を元に戻す
-    document.querySelectorAll('.faq_text span').forEach((el) => {
-      if (el !== icon) {
-        el.classList.remove('fa-minus');
-        el.classList.add('fa-plus');
-      }
-    });
-
-    answer.classList.toggle('open');
-    icon.classList.toggle('fa-plus');
-    icon.classList.toggle('fa-minus');
   });
-});
 
-//実績紹介をカルーセル化
-const track = document.querySelector('.slider-track');
-let items = document.querySelectorAll('.slider-track .flex_items');
-let currentIndex = 1;
-let isTransitioning = false;
-let startX = 0;
-let deltaX = 0;
-let isDragging = false;
+  // -------------------------------
+  // ▼ ⑤ バリデーション
+  // -------------------------------
+  const form = document.querySelector('.form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      console.log("バリデーション開始");
 
-// クローン追加
-const firstClone = items[0].cloneNode(true);
-const lastClone = items[items.length - 1].cloneNode(true);
-track.appendChild(firstClone);
-track.insertBefore(lastClone, items[0]);
+      const company = document.getElementById('company');
+      const name = document.getElementById('name');
+      const tel1 = document.getElementById('tel1');
+      const tel2 = document.getElementById('tel2');
+      const tel3 = document.getElementById('tel3');
+      const email = document.getElementById('email');
+      const prefecture = document.getElementById('prefecture');
+      const inquiry = document.getElementById('inquiry');
 
-// 再取得（クローン含む）
-items = document.querySelectorAll('.slider-track .flex_items');
-let itemWidth = items[0].getBoundingClientRect().width;
+      document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
+      let hasError = false;
 
-track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
+      if (company.value.trim() === "") {
+        document.getElementById('error-company').textContent = "会社名を入力してください。";
+        hasError = true;
+      }
+      if (name.value.trim() === "") {
+        document.getElementById('error-name').textContent = "お名前を入力してください。";
+        hasError = true;
+      }
+      if (!/^\d{2,5}$/.test(tel1.value.trim()) || !/^\d{1,4}$/.test(tel2.value.trim()) || !/^\d{1,4}$/.test(tel3.value.trim())) {
+        document.getElementById('error-tel').textContent = "電話番号を正しく入力してください。";
+        hasError = true;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        document.getElementById('error-email').textContent = "有効なメールアドレスを入力してください。";
+        hasError = true;
+      }
+      if (prefecture.value === "" || prefecture.value === "選択してください") {
+        document.getElementById('error-prefecture').textContent = "都道府県を選択してください。";
+        hasError = true;
+      }
+      if (inquiry.value === "" || inquiry.value === "ご相談内容を選択") {
+        document.getElementById('error-inquiry').textContent = "ご相談内容を選択してください。";
+        hasError = true;
+      }
 
-// 移動関数
-function moveToIndex(index) {
-  isTransitioning = true;
-  track.style.transition = 'transform 0.4s ease';
-  track.style.transform = `translateX(${-itemWidth * index}px)`;
-}
-
-// 次へ
-document.querySelector('.next').addEventListener('click', () => {
-  if (isTransitioning) return;
-  currentIndex++;
-  moveToIndex(currentIndex);
-});
-
-// 前へ
-document.querySelector('.prev').addEventListener('click', () => {
-  if (isTransitioning) return;
-  currentIndex--;
-  moveToIndex(currentIndex);
-});
-
-// ループ処理
-track.addEventListener('transitionend', () => {
-  track.style.transition = 'none';
-
-  if (currentIndex === items.length - 1) {
-    currentIndex = 1;
-    track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
+      if (!hasError) {
+        console.log("送信されました");
+        this.submit();
+      }
+    });
   }
-  if (currentIndex === 0) {
-    currentIndex = items.length - 2;
-    track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
-  }
-
-  isTransitioning = false;
 });
-
-// スマホ対応（touchイベント）
-track.addEventListener('touchstart', (e) => {
-  isDragging = true;
-  startX = e.touches[0].clientX;
-  track.style.transition = 'none';
-});
-track.addEventListener('touchmove', (e) => {
-  if (!isDragging) return;
-  deltaX = e.touches[0].clientX - startX;
-  track.style.transform = `translateX(${(-itemWidth * currentIndex) + deltaX}px)`;
-});
-track.addEventListener('touchend', () => {
-  if (!isDragging) return;
-  isDragging = false;
-
-  if (Math.abs(deltaX) > itemWidth / 4) {
-    if (deltaX < 0) {
-      currentIndex++;
-    } else {
-      currentIndex--;
-    }
-  }
-  moveToIndex(currentIndex);
-  deltaX = 0;
-});
-
-// 横幅を再取得
-function updateWidth() {
-    itemWidth = document.querySelector('.slider-track .flex_items').offsetWidth;
-    track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
-}
-
-window.addEventListener('resize', updateWidth);
-
-//▼お問い合わせページcontact.htmlの入力バリデーション
-document.addEventListener('DOMContentLoaded', () => {
-  // ▼バリデーション用処理
-  const form = document.querySelector('form');
-
-  form.addEventListener('submit', function (e) {
-      let errors = [];
-
-      // 会社名
-      if (!form.company.value.trim()) {
-          errors.push("会社名を入力してください。");
-      }
-
-      // お名前
-      if (!form.name.value.trim()) {
-          errors.push("お名前を入力してください。");
-      }
-
-      // 電話番号
-      const tel1 = form.tel1.value.trim();
-      const tel2 = form.tel2.value.trim();
-      const tel3 = form.tel3.value.trim();
-      const telRegex = /^\d+$/;
-      if (!(tel1 && tel2 && tel3) || !telRegex.test(tel1 + tel2 + tel3)) {
-          errors.push("電話番号を正しく入力してください（数字のみ）。");
-      }
-
-      // メール
-      const email = form.email.value.trim();
-      const emailRegex = /^[\w\.-]+@[\w\.-]+\.\w+$/;
-      if (!email || !emailRegex.test(email)) {
-          errors.push("正しいメールアドレスを入力してください。");
-      }
-
-      // ご相談内容
-      if (!form.inquiry.value) {
-          errors.push("ご相談内容を選択してください。");
-      }
-
-      if (errors.length > 0) {
-          e.preventDefault();
-          alert(errors.join('\n'));
-      }
-  });
-});
-

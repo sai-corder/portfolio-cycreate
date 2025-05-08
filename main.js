@@ -43,59 +43,66 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-     // -------------------------------
-  // ▼ ⑥ 実績紹介スライダー処理（ループ対応）
-  // -------------------------------
-  const track = document.querySelector('.slider-track');
+// -------------------------------
+// ▼ 実績紹介スライダー処理（ループ＋中央表示）
+// -------------------------------
+const track = document.querySelector('.slider-track');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
 
 if (track && prevBtn && nextBtn) {
   let items = track.querySelectorAll('.flex_items');
-  const itemWidth = items[0].getBoundingClientRect().width + 20;
+  const itemWidth = items[0].getBoundingClientRect().width;
+  const wrapper = document.querySelector('.slider-wrapper');
+  const wrapperWidth = wrapper.getBoundingClientRect().width;
+  const offset = (wrapperWidth - itemWidth * 3) / 2; // 中央寄せ分（3カラム表示前提）
+
   let currentIndex = 1;
   let isTransitioning = false;
 
-  // ▼ クローン追加
+  // ▼ クローン追加（無限ループのため）
   const firstClone = items[0].cloneNode(true);
   const lastClone = items[items.length - 1].cloneNode(true);
   track.appendChild(firstClone);
   track.insertBefore(lastClone, items[0]);
 
-  // ▼ 再取得
+  // ▼ 再取得（クローン含めて）
   items = track.querySelectorAll('.flex_items');
 
-  // ▼ 初期位置（中央に来るように1つ分だけずらす）
-  track.style.transform = `translateX(calc(50% - ${itemWidth * currentIndex}px))`;
+  // ▼ 初期表示位置（中央寄せ調整付き）
+  track.style.transform = `translateX(-${itemWidth * currentIndex - offset}px)`;
 
+  // ▼ スライド後の位置調整（ループ処理）
   track.addEventListener('transitionend', () => {
     isTransitioning = false;
-    if (items[currentIndex].isSameNode(firstClone)) {
+    if (items[currentIndex] === firstClone) {
       track.style.transition = 'none';
       currentIndex = 1;
-      track.style.transform = `translateX(calc(50% - ${itemWidth * currentIndex}px))`;
+      track.style.transform = `translateX(-${itemWidth * currentIndex - offset}px)`;
     }
-    if (items[currentIndex].isSameNode(lastClone)) {
+    if (items[currentIndex] === lastClone) {
       track.style.transition = 'none';
       currentIndex = items.length - 2;
-      track.style.transform = `translateX(calc(50% - ${itemWidth * currentIndex}px))`;
+      track.style.transform = `translateX(-${itemWidth * currentIndex - offset}px)`;
     }
   });
 
+  // ▼ 前ボタン
   prevBtn.addEventListener('click', () => {
     if (isTransitioning) return;
     isTransitioning = true;
     currentIndex--;
     track.style.transition = 'transform 0.4s ease';
-    track.style.transform = `translateX(calc(50% - ${itemWidth * currentIndex}px))`;
+    track.style.transform = `translateX(-${itemWidth * currentIndex - offset}px)`;
   });
 
+  // ▼ 次ボタン
   nextBtn.addEventListener('click', () => {
     if (isTransitioning) return;
     isTransitioning = true;
     currentIndex++;
     track.style.transition = 'transform 0.4s ease';
-    track.style.transform = `translateX(calc(50% - ${itemWidth * currentIndex}px))`;
+    track.style.transform = `translateX(-${itemWidth * currentIndex - offset}px)`;
   });
 }
 

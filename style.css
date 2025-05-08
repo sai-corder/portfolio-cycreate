@@ -314,14 +314,14 @@
 .slider-wrapper {
     position: relative;
     overflow: hidden;
-    margin-top: 60px;
+    margin: 60px auto 0;
+    width: 100%;
+    max-width: 1280px;
   }
   
   .slider {
     overflow: hidden;
     width: 100%;
-    display: flex;
-    justify-content: center; /* これが重要 */
   }
   
   .slider-track {
@@ -330,7 +330,7 @@
   }
   
   .flex_items {
-    flex: 0 0 33.333%; /* 3カラム */
+    flex: 0 0 33.333%;
     box-sizing: border-box;
     padding: 0 10px;
   }

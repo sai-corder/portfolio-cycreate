@@ -49,13 +49,13 @@ window.addEventListener('DOMContentLoaded', () => {
 const track = document.querySelector('.slider-track');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
+const wrapper = document.querySelector('.slider-wrapper');
 
-if (track && prevBtn && nextBtn) {
+if (track && prevBtn && nextBtn && wrapper) {
   let items = track.querySelectorAll('.flex_items');
-  const itemWidth = items[0].getBoundingClientRect().width;
-  const wrapper = document.querySelector('.slider-wrapper');
-  const wrapperWidth = wrapper.getBoundingClientRect().width;
-  const offset = (wrapperWidth - itemWidth * 3) / 2; // 中央寄せ分（3カラム表示前提）
+  let itemWidth = items[0].getBoundingClientRect().width;
+  let wrapperWidth = wrapper.getBoundingClientRect().width;
+  let offset = (wrapperWidth - itemWidth * 3) / 2;
 
   let currentIndex = 1;
   let isTransitioning = false;
@@ -72,7 +72,7 @@ if (track && prevBtn && nextBtn) {
   // ▼ 初期表示位置（中央寄せ調整付き）
   track.style.transform = `translateX(-${itemWidth * currentIndex - offset}px)`;
 
-  // ▼ スライド後の位置調整（ループ処理）
+  // ▼ ループ処理
   track.addEventListener('transitionend', () => {
     isTransitioning = false;
     if (items[currentIndex] === firstClone) {
@@ -86,6 +86,24 @@ if (track && prevBtn && nextBtn) {
       track.style.transform = `translateX(-${itemWidth * currentIndex - offset}px)`;
     }
   });
+
+  // ▼ リサイズ対応
+  function updateSliderPosition() {
+    items = track.querySelectorAll('.flex_items');
+    itemWidth = items[0].getBoundingClientRect().width;
+    wrapperWidth = wrapper.getBoundingClientRect().width;
+
+    const visibleCount = Math.floor(wrapperWidth / itemWidth);
+    offset = (wrapperWidth - itemWidth * visibleCount) / 2;
+
+    track.style.transition = 'none';
+    track.style.transform = `translateX(-${itemWidth * currentIndex - offset}px)`;
+    track.offsetHeight;
+    track.style.transition = 'transform 0.4s ease';
+  }
+
+  window.addEventListener('resize', updateSliderPosition);
+  updateSliderPosition(); // 初期表示にも呼ぶ
 
   // ▼ 前ボタン
   prevBtn.addEventListener('click', () => {
@@ -105,7 +123,6 @@ if (track && prevBtn && nextBtn) {
     track.style.transform = `translateX(-${itemWidth * currentIndex - offset}px)`;
   });
 }
-
 
   // -------------------------------
   // ▼ ④ FAQトグル

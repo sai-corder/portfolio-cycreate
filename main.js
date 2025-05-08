@@ -43,32 +43,65 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-   // -------------------------------
-  // ▼ ⑥ 実績紹介スライダー処理
+     // -------------------------------
+  // ▼ ⑥ 実績紹介スライダー処理（ループ対応）
   // -------------------------------
   const track = document.querySelector('.slider-track');
   const prevBtn = document.querySelector('.prev');
   const nextBtn = document.querySelector('.next');
 
   if (track && prevBtn && nextBtn) {
-    const items = track.querySelectorAll('.flex_items');
-    const itemWidth = items[0].getBoundingClientRect().width + 20; // padding分調整
-    let currentIndex = 0;
+    let items = track.querySelectorAll('.flex_items');
+    const itemWidth = items[0].getBoundingClientRect().width + 20;
+    let currentIndex = 1;
+    let isTransitioning = false;
 
-    prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
+    // ▼ クローン追加
+    const firstClone = items[0].cloneNode(true);
+    const lastClone = items[items.length - 1].cloneNode(true);
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, items[0]);
+
+    // ▼ クローン含めて再取得
+    items = track.querySelectorAll('.flex_items');
+
+    // ▼ 初期位置調整
+    track.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+
+    // ▼ 遷移後のリセット処理
+    track.addEventListener('transitionend', () => {
+      isTransitioning = false;
+      if (items[currentIndex].isSameNode(firstClone)) {
+        track.style.transition = 'none';
+        currentIndex = 1;
         track.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
       }
+      if (items[currentIndex].isSameNode(lastClone)) {
+        track.style.transition = 'none';
+        currentIndex = items.length - 2;
+        track.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (isTransitioning) return;
+      if (!track) return;
+      isTransitioning = true;
+      currentIndex--;
+      track.style.transition = 'transform 0.4s ease';
+      track.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
     });
 
     nextBtn.addEventListener('click', () => {
-      if (currentIndex < items.length - 3) { // 3カラム分表示
-        currentIndex++;
-        track.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
-      }
+      if (isTransitioning) return;
+      if (!track) return;
+      isTransitioning = true;
+      currentIndex++;
+      track.style.transition = 'transform 0.4s ease';
+      track.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
     });
   }
+
 
   // -------------------------------
   // ▼ ④ FAQトグル

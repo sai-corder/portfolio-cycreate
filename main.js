@@ -43,6 +43,33 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+   // -------------------------------
+  // ▼ ⑥ 実績紹介スライダー処理
+  // -------------------------------
+  const track = document.querySelector('.slider-track');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+
+  if (track && prevBtn && nextBtn) {
+    const items = track.querySelectorAll('.flex_items');
+    const itemWidth = items[0].getBoundingClientRect().width + 20; // padding分調整
+    let currentIndex = 0;
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        track.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < items.length - 3) { // 3カラム分表示
+        currentIndex++;
+        track.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+      }
+    });
+  }
+
   // -------------------------------
   // ▼ ④ FAQトグル
   // -------------------------------
